@@ -1,32 +1,44 @@
 body {
     background-image: url("images/experiment.png");
     background-color: #ffffff;
-    background-repeat: no-repeat; /* Do not repeat the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
     background-position: left 100px;
-   }
+}
 
 .log {
-    height: 20px; 
-    position: fixed; 
-    bottom:0px;
-    width:90%; 
-    background-color: rgb(253, 253, 253);
-   }
+    position: absolute;    
+    bottom: 0px;
+    top: 630px;
+    left: 10px;
+    width: 300px;
+    height: 25px;
+    background-color: rgba(253, 253, 253, 0.349);
+}
 
 .info {
-  position: fixed; 
-  background-color: rgb(224, 224, 222);
-  width: 90%;
-  height: 150px;
-  bottom:20px;
-  overflow-y: scroll;
-  white-space: pre-line;
-  text-align:justify;
-}   
+    position: absolute;
+    top: 650px;
+    left: 10px;
+    width: 940px;
+    height: 200px;
+    background-color: rgb(255, 255, 254);
+    
+    border-color:rgb(135, 135, 135);
+    border-top-width: 1px;
+    border-left-width: 0px;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-style: solid;
+    overflow-y: scroll;
+    white-space: pre-line;
+    text-align: justify;
+}
+
 .tooltip {
-position: relative;
-display: inline-block;
-border-bottom: 1px dotted black;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {
@@ -41,7 +53,7 @@ border-bottom: 1px dotted black;
     z-index: 1;
     bottom: 125%;
     left: 50%;
-    overflow-y: scroll;
+    overflow-y:auto;
     margin-left: -60px;
     opacity: 0;
     transition: opacity 0.3s;
@@ -62,62 +74,44 @@ border-bottom: 1px dotted black;
     visibility: visible;
     opacity: 1;
 }
-/* Popup container - can be anything you want */
-.popup {
-    position: relative;
+
+.detailsTitle{
+    padding-left:10px;
+    position: absolute;
+    top: 40px;
+    left: 950px;
+    width: 400px;
+    height: 40px;
+    display: block;
+    font-weight:bold;
+    font-size:large;
+}
+
+/* Information container */
+.details {
+    position: absolute;
+    top: 80px;
+    left: 950px;
+    width: 400px;
+    height: 850px;
     display: block;
     cursor: pointer;
-    z-index:105;
+    z-index: 105;
     overflow-y: scroll;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
+    padding-left:10px;
+    border-left-width: 1px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-style: solid;
+    border-color: rgb(108, 107, 107);
+    background-color: rgba(250, 250, 248, 0.359);
+    color: rgb(58, 58, 58);
+    text-align: left;
+    z-index: 10;
 
-/* The actual popup */
-.popup .popuptext {
-  display: none;
-  width: 200px;
-  height: 200px;
-  border-color:rgb(5, 5, 5);
-  background-color: rgb(245, 236, 153);
-  color: rgb(58, 58, 58);
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: relative;
-  z-index: 10;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: relative;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-  display: block;
-  
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
 }

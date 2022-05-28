@@ -16,31 +16,26 @@ function is(e, obj) {
     }
     return false;
 }
-function showPopup( obj, e) {
+function showDetails( obj, e) {
    
-  var popup = document.getElementById("defaultPopup");
-  popup.classList.toggle("show");
-  popup.style.left = (e.clientX ) + 'px';
-  //popup.style.left = 100 + 'px';
-  popup.style.top  = (e.clientY-200) + 'px';
-  //popup.style.top  = 100 + 'px';
-  p("Showing popup "+obj.name+ " at "+popup.style.left+"/"+popup.style.top+ " display: "+popup.display);
-  popup.innerHTML =obj.desc;
-  info(obj.desc);
+  var details = document.getElementById("defaultDetails");
+  
+  details.innerHTML =obj.desc;  
 }
-function hidePopup(  ) {
+function hideDetails(  ) {
    
-    var popup = document.getElementById("defaultPopup");
-    popup.classList.toggle("show");
-    
-    popup.innerHTML ="";
-   
+    var details = document.getElementById("defaultDetails");
+    details.innerHTML ="";   
   }
 function log(s){
     $("#log").text(s);
     p(s);
 }
-
+function clearInfo(){
+   
+    $("#info").html("");
+    
+}
 function rad(degrees) {
   return degrees * (Math.PI/180);
 }

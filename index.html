@@ -51,8 +51,8 @@
             var obj= objects[i];
             log("Is it object "+obj.name+"?");
             if (is(e, obj)) {
-                log("Yes, showing popup");
-                showPopup(obj, e);
+                log("Yes, showing details");
+                showDetails(obj, e);
                 // maybe do some action? 
                 if(obj.run !=undefined) {
                     info(obj.name+" has a run function. Calling it if all scripts loaded. "+loaded);
@@ -60,8 +60,7 @@
                 }
                 return;
             }
-            log("hiding popup");
-            hidePopup();
+            
         }       
     });
 
@@ -81,12 +80,15 @@
     }
 </script>
 
-    
-<div class="popup">
-    <span class="popuptext" id="defaultPopup">A Popup</span>
+
+
+<div class="detailsTitle">
+    Details
+</div>
+<div class="details" id="defaultDetails">
 </div>
 
-<div >
+<div>
     <div class="info" id="info"></div>
     <div class="log" id="log"></div>
 </div>
