@@ -1,0 +1,123 @@
+body {
+    background-image: url("images/experiment.png");
+    background-color: #ffffff;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: left 100px;
+   }
+
+.log {
+    height: 20px; 
+    position: fixed; 
+    bottom:0px;
+    width:90%; 
+    background-color: rgb(253, 253, 253);
+   }
+
+.info {
+  position: fixed; 
+  background-color: rgb(224, 224, 222);
+  width: 90%;
+  height: 150px;
+  bottom:20px;
+  overflow-y: scroll;
+  white-space: pre-line;
+  text-align:justify;
+}   
+.tooltip {
+position: relative;
+display: inline-block;
+border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: rgb(5, 5, 5);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    overflow-y: scroll;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    z-index:105;
+    overflow-y: scroll;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  display: none;
+  width: 200px;
+  height: 200px;
+  border-color:rgb(5, 5, 5);
+  background-color: rgb(245, 236, 153);
+  color: rgb(58, 58, 58);
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: relative;
+  z-index: 10;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: relative;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  display: block;
+  
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}

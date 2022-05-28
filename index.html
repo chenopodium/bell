@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        
+    </head>
+<body>
+
+<h2>EPR Experiment</h2>
+<p>Click on the image to change parameters and functions:</p>
+
+</div>
+<script>
+   
+   var loaded=0;
+   var allLoaded= function() {
+        info("Calling apply config");
+        var config= configs[0];
+        applyConfig(config);
+   }
+   loadScript("const.js", p("Loading of const done"));  
+   loadScript("utils.js", p("Loading of utils done"));   
+   loadScript("eberhard.js", p("Loading of eberhard done"));
+   loadScript("detector.js", p("Loading of detector done"));
+   loadScript("trials.js", p("Loading of trials done"));
+   loadScript("measurement.js", p("Loading of measurement done"));
+   loadScript("experiment.js", p("Loading of experiment done"));
+   loadScript("photon.js", p("Loading of photon done"));
+   loadScript("config.js", p("Loading of config done"));
+   loadScript("objects.js", allLoaded);
+   
+ 
+
+    $( document ).on( "mousemove", function( e ) {
+        if(objects== undefined) return;
+        var s=  "X: " + e.pageX + ", Y: " + e.pageY+" " ;
+        for(var i = 0;i < objects.length; i++) {           
+            if (is(e, objects[i])) {
+                s+=objects[i].name;
+                break;
+            }
+        }             
+        $( "#log" ).text(s);
+    });
+
+    $( document ).on( "click", function( e ) {    
+        log( "Click X: " + e.pageX + ", Y: " + e.pageY ); 
+        if(objects== undefined) return;
+        for(var i = 0;i < objects.length; i++) { 
+            var obj= objects[i];
+            log("Is it object "+obj.name+"?");
+            if (is(e, obj)) {
+                log("Yes, showing popup");
+                showPopup(obj, e);
+                // maybe do some action? 
+                if(obj.run !=undefined) {
+                    info(obj.name+" has a run function. Calling it if all scripts loaded. "+loaded);
+                    obj.run();
+                }
+                return;
+            }
+            log("hiding popup");
+            hidePopup();
+        }       
+    });
+
+    function loadScript(url, callback) {        
+        var head = document.head;
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = url;
+        script.onreadystatechange = callback;
+        script.onload = callback;
+        head.appendChild(script);
+        loaded++;
+    }
+    
+    function p(s) {
+        console.log(s);
+    }
+</script>
+
+    
+<div class="popup">
+    <span class="popuptext" id="defaultPopup">A Popup</span>
+</div>
+
+<div >
+    <div class="info" id="info"></div>
+    <div class="log" id="log"></div>
+</div>
+
+</body>
+</html>
